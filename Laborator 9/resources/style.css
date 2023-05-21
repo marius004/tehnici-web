@@ -40,3 +40,8 @@ textarea {
   margin-top: 10px;
 }
   
+input, select {
+  /* display: block; */
+  padding: 4px;
+  margin-bottom: 12px;
+}

@@ -10,7 +10,134 @@
      <h3>FORMULAR PENTRU INTRAREA ÎN SISTEMUL SOLAR</h3>
       
      <div id="container"> 
-       <form>
+       <form onsubmit="validateForm(event)">
+        <fieldset id="personal-data">
+          <legend>Date personale</legend>
+          <label for="name">Nume:</label>
+          <input type="text" id="name" name="name" minlength="3" maxlength="30" required>
+          <br>
+          <label for="id">ID-ul unic intergalactic:</label>
+          <input type="text" id="id" name="id" minlength="8" maxlength="20" pattern="[A-Za-z0-9]{8,20}" required>
+          <br>
+
+          <label for="race">Rasă:</label>
+          <select id="race" name="race">
+            <option value="Autobot">Autobot</option>
+            <option value="Daimons">Daimons</option>
+            <option value="Deep Ones">Deep Ones</option>
+            <option value="Experiment">Experiment</option>
+            <option value="Goa'uld">Goa'uld</option>
+            <option value="Hutt">Hutt</option>
+            <option value="Jawa">Jawa</option>
+            <option value="Kryptonian">Kryptonian</option>
+            <option value="Mandalorians">Mandalorians</option>
+            <option value="Martian">Martian</option>
+            <option value="Protoss">Protoss</option>
+            <option value="Rodian">Rodian</option>
+            <option value="Romulan">Romulan</option>
+            <option value="Tleilaxu">Tleilaxu</option>
+            <option value="Vogon">Vogon</option>
+            <option value="Wookie">Wookie</option>
+            <option value="Xenu">Xenu</option>
+            <option value="Yeti">Yeti</option>
+            <option value="Zerg">Zerg</option>
+          </select>
+          <br>
+
+          <label for="birthdate">Data nașterii:</label>
+          <input type="date" id="birthdate" name="birthdate" min="1800-01-01" max="2023-05-07" required>
+          <br>
+
+          <label for="credit">Credit social:</label>
+          <input type="range" id="credit" name="credit" min="0" max="2000" step="50" required>
+          <br>
+
+          <label for="photo">Fotografie:</label>
+          <input type="file" id="photo" name="photo" accept="image/*" required>
+        </fieldset>
+        <fieldset>
+          <legend>Contact</legend>
+          <label for="galaxy">Galaxia de proveniență:</label>
+          <input type="text" id="galaxy" name="galaxy" required>
+          <br><br>
+
+          <label for="planet">Planeta provenienta:</label>
+          <input type="text" id="planet" name="planet" required>
+          <br><br>
+
+          <label for="address">Adresă:</label> <br>
+          <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+          <br><br>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <br><br>
+
+          <label for="phone">Telefon:</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" required>
+          <br><br>
+
+          <label for="website">URL-ul paginii web personale:</label>
+          <input type="url" id="website" name="website" required>
+          <br><br>
+
+        </fieldset>
+        <fieldset>
+          <legend>Semnalmente fizice</legend>
+          <label for="height">Înălțime (în cm):</label>
+          <input type="number" id="height" name="height" min="10" max="300" required>
+          <br><br>
+      
+          <label for="weight">Greutate (în kg):</label>
+          <input type="number" id="weight" name="weight" min="1" max="500" required>
+          <br><br>
+      
+          <label for="num_limbs">Număr de membre:</label>
+          <input type="number" id="num_limbs" name="num_limbs" required>
+          <br><br>
+      
+          <label for="num_eyes">Număr de ochi:</label>
+          <input type="number" id="num_eyes" name="num_eyes" required>
+          <br><br>
+      
+          <label for="color">Culoare preferată:</label>
+          <input type="color" id="color" name="color" onchange="saveColor()">
+          <br><br>
+        </fieldset>
+        <fieldset>
+          <legend>Vizita</legend>
+          <label for="arrival_date">Data sosirii:</label>
+          <input type="date" id="arrival_date" name="arrival_date" min="2023-05-07" max="2033-05-07" required>
+          <br><br>
+      
+          <label for="arrival_time">Ora estimată a sosirii:</label>
+          <input type="time" id="arrival_time" name="arrival_time" required>
+          <br><br>
+      
+          <label for="stay_type">Tipul de ședere:</label>
+          <select id="stay_type" name="stay_type" required>
+            <option value="temporar" selected>Temporară</option>
+            <option value="permanent">Permanentă</option>
+          </select>
+          <br><br>
+      
+          <label>Scopul vizitei:</label><br>
+          <input type="checkbox" id="invazie" name="visit_purpose" value="invazie" checked>
+          <label for="invazie">Invazie</label><br>
+          <input type="checkbox" id="explorare" name="visit_purpose" value="explorare">
+          <label for="explorare">Explorare</label><br>
+          <input type="checkbox" id="interactiune" name="visit_purpose" value="interacțiune">
+          <label for="interactiune">Interacțiune culturală</label><br>
+          <input type="checkbox" id="cercetare" name="visit_purpose" value="cercetare">
+          <label for="cercetare">Cercetare științifică</label><br>
+          <input type="checkbox" id="altul" name="visit_purpose" value="altul">
+          <label for="cercetare">Altul</label><br><br>
+      
+          <label for="other_details">Comentarii:</label><br>
+          <textarea id="other_details" name="other_details" rows="4" cols="50"></textarea>
+          <br><br>
+        </fieldset>
+        <input type="submit" value="Trimite cererea" onclick="(e) => validateForm(e)">
        </form>
      </div>
    </body>
